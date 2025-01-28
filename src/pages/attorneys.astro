@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const attorneys = [
+	{
+		name: "XXXXXX XXXXXXXX",
+		position: "XXXXXX XXXXXXXX",
+		specialties: ["XXXXXX XXXXXXXX", "XXXXXX XXXXXXXX"],
+		education: "XXXXXX XXXXXXXX, XXX",
+		image: "#"
+	},
+	{
+		name: "XXXXXX XXXXXXXX",
+		position: "XXXXXXXX",
+		specialties: ["XXXXXX XXXXXXXX", "XXXXXX XXXXXXXX"],
+		education: "XXXX XXXX XXXXX, XXXX",
+		image: "#"
+	},
+	{
+		name: "XXXXXX XXXXXXXX",
+		position: "XXXXXX",
+		specialties: ["XXXXXX XXXXXXXX", "XXXXXX XXXXXXXX"],
+		education: "XXXXXX XXXXXXXX, XXX",
+		image: "#"
+	},
+	{
+		name: "XXXXXX XXXXXXXX",
+		position: "XXXX",
+		specialties: ["XXXXXX XXXXXX", "XXXXXX XXXXXXXX"],
+		education: "XXXXXX XXXXXXXX, XXX",
+		image: "#"
+	}
+];
+---
+
+<Layout title="Our Attorneys">
+	<main class="container mx-auto px-4 py-12">
+		<h1 class="text-4xl font-bold mb-12 text-center">Our Attorneys</h1>
+		
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+			{attorneys.map(attorney => (
+				<div class="bg-white rounded-lg shadow-lg overflow-hidden">
+					<img src={attorney.image} alt={attorney.name} class="w-full h-64 object-cover" />
+					<div class="p-6">
+						<h2 class="text-xl font-bold mb-2">{attorney.name}</h2>
+						<p class="text-gray-600 mb-4">{attorney.position}</p>
+						<h3 class="font-semibold mb-2">Practice Areas:</h3>
+						<ul class="text-gray-600 mb-4">
+							{attorney.specialties.map(specialty => (
+								<li>{specialty}</li>
+							))}
+						</ul>
+						<p class="text-gray-600 italic">{attorney.education}</p>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<section class="mt-16">
+			<h2 class="text-3xl font-bold mb-8 text-center">Join Our Team</h2>
+			<div class="max-w-2xl mx-auto text-center">
+				<p class="text-gray-600 mb-8">
+					We're always looking for talented attorneys to join our team. If you're passionate about law and committed to excellence, we'd love to hear from you.
+				</p>
+				<a href="/contact" class="inline-block bg-slate-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-800 transition">
+					Contact Us About Opportunities
+				</a>
+			</div>
+		</section>
+	</main>
+</Layout>
